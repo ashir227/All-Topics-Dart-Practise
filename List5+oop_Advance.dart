@@ -22,7 +22,22 @@ class Student {
   Stud_info() {
     print("Name : $name | Roll no :$rollNo | Grade : ${grade()}");
   }
+// 🔹 Custom method to remove student
+void removeStudentByRollNo(List<Student> students) {
+  stdout.write("Enter Roll No to remove: ");
+  double rollToRemove = double.parse(stdin.readLineSync()!);
+
+  // Remove using removeWhere
+  bool removed = students.removeWhere((s) => s.rollNo == rollToRemove) > 0;
+
+  if (removed) {
+    print("✅ Student with Roll No $rollToRemove removed successfully.");
+  } else {
+    print("❌ Student not found.");
+  }
 }
+}
+
 void main() {
   List stu = [];
   String? choise;
